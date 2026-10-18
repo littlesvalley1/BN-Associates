@@ -4,11 +4,12 @@ Static marketing + lead-generation website for **B.N. Associates (Prop. Preetpal
 
 ## Features
 
-- High-contrast dark design translated from the visiting card (black / yellow #FFD400 / red #D92B2B)
+- Day/night mode toggle that remembers the choice in the current browser, with high-contrast brand styling (black / yellow #FFD400 / red #D92B2B)
 - Sticky header with tap-to-call + mobile menu
 - Hero with breathing WhatsApp CTA, trust stats, scrolling service ticker
 - Services: Sale & Purchase, Renting, Collaboration/JV
 - Listings with filter chips — every card has a one-tap WhatsApp enquiry (pre-filled message) + call button
+- Neighborhood photo gallery featuring local homes, plots and the B.N. Associates office
 - Password-only admin at `/admin` for managing classifieds, property photos and business contact details
 - GrowthMachine Studio footer credit with a direct link to its website
 - Buyer tools: **Home-loan EMI calculator** + **Area converter** (Gaj ↔ Sq Ft ↔ Sq M ↔ Marla ↔ Kanal)

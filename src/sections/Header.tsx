@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Menu, Phone, X } from 'lucide-react'
+import { Menu, Moon, Phone, Sun, X } from 'lucide-react'
 import { SITE, telHref } from '@/lib/site'
+
+type Theme = 'dark' | 'light'
 
 const NAV = [
   { label: 'Services', href: '#services' },
@@ -10,7 +12,7 @@ const NAV = [
   { label: 'FAQ', href: '#faq' },
 ]
 
-export default function Header() {
+export default function Header({ theme, onToggleTheme }: { theme: Theme; onToggleTheme: () => void }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -37,7 +39,7 @@ export default function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b hairline transition-colors duration-300 ${
-        scrolled || open ? 'bg-[#141416]/95 backdrop-blur-md' : 'bg-transparent border-transparent'
+        scrolled || open ? 'bg-[var(--ink)]/95 backdrop-blur-md' : 'bg-transparent border-transparent'
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
@@ -46,12 +48,12 @@ export default function Header() {
           <span className="text-sm font-bold tracking-[0.22em] text-[var(--paper)]">{SITE.brandSub}</span>
         </a>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-5 lg:flex" aria-label="Main navigation">
           {NAV.map((n) => (
             <a
               key={n.href}
               href={n.href}
-              className="font-mono2 text-[13px] uppercase tracking-wider text-[var(--paper-dim)] transition-colors hover:text-[var(--yellow)]"
+              className="whitespace-nowrap font-mono2 text-[13px] uppercase tracking-wider text-[var(--paper-dim)] transition-colors hover:text-[var(--yellow)]"
             >
               {n.label}
             </a>
@@ -61,18 +63,32 @@ export default function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href={telHref(SITE.phone1)}
-            className="flex min-h-11 items-center gap-2 font-mono2 text-sm font-bold text-[var(--yellow)] transition-colors hover:text-[var(--yellow-soft)]"
+            className="flex min-h-11 items-center gap-2 whitespace-nowrap font-mono2 text-sm font-bold text-[var(--yellow)] transition-colors hover:text-[var(--yellow-soft)]"
           >
             <Phone size={16} strokeWidth={2.4} aria-hidden />
             {SITE.phone1Display}
           </a>
           <a
             href="#contact"
-            className="min-h-11 rounded-md bg-[var(--red)] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--red-deep)]"
+            className="min-h-11 whitespace-nowrap rounded-md bg-[var(--red)] px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--red-deep)]"
           >
             Enquire Now
           </a>
         </div>
+
+        <button
+          type="button"
+          onClick={onToggleTheme}
+          aria-label={`Switch to ${theme === 'dark' ? 'day' : 'night'} mode`}
+          aria-pressed={theme === 'light'}
+          title={`Switch to ${theme === 'dark' ? 'day' : 'night'} mode`}
+          className="flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md border hairline px-2.5 text-[var(--paper)] transition-colors hover:border-[var(--yellow)] hover:text-[var(--yellow)] sm:px-3"
+        >
+          {theme === 'dark' ? <Sun size={18} aria-hidden /> : <Moon size={18} aria-hidden />}
+          <span className="hidden font-mono2 text-[11px] font-bold uppercase tracking-wide sm:inline lg:hidden">
+            {theme === 'dark' ? 'Day' : 'Night'}
+          </span>
+        </button>
 
         <button
           type="button"
@@ -87,7 +103,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t hairline bg-[#141416] lg:hidden">
+        <div className="border-t hairline bg-[var(--ink)] lg:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col px-4 py-4 sm:px-6" aria-label="Mobile navigation">
             {NAV.map((n) => (
               <a

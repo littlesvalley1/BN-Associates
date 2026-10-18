@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react'
 import { useReveal } from '@/hooks/useReveal'
 import Header from '@/sections/Header'
 import Hero from '@/sections/Hero'
 import Services from '@/sections/Services'
 import Listings from '@/sections/Listings'
+import PropertyShowcase from '@/sections/PropertyShowcase'
 import Tools from '@/sections/Tools'
 import Why from '@/sections/Why'
 import Testimonials from '@/sections/Testimonials'
@@ -12,6 +14,8 @@ import Footer from '@/sections/Footer'
 import FloatingActions from '@/sections/FloatingActions'
 import { AREAS, SITE } from '@/lib/site'
 import { MapPin } from 'lucide-react'
+
+type Theme = 'dark' | 'light'
 
 function Areas() {
   return (
@@ -40,14 +44,24 @@ function Areas() {
 }
 
 export default function Home() {
+  const [theme, setTheme] = useState<Theme>(() =>
+    window.localStorage.getItem('bn-associates-theme') === 'light' ? 'light' : 'dark',
+  )
+
   useReveal()
+
+  useEffect(() => {
+    window.localStorage.setItem('bn-associates-theme', theme)
+  }, [theme])
+
   return (
-    <div className="min-h-[100dvh]">
-      <Header />
+    <div className="theme-root min-h-[100dvh]" data-theme={theme}>
+      <Header theme={theme} onToggleTheme={() => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))} />
       <main>
         <Hero />
         <Services />
         <Listings />
+        <PropertyShowcase />
         <Areas />
         <Tools />
         <Why />

@@ -234,7 +234,7 @@ export default function Tools() {
                 onClick={() => setTab(t.key)}
                 className={`flex min-h-11 items-center gap-2 rounded-md border px-4 font-mono2 text-sm font-bold uppercase tracking-wider transition-all sm:px-5 ${
                   active
-                    ? 'border-[var(--yellow)] bg-[var(--yellow)] text-[var(--ink)]'
+                    ? 'border-[var(--yellow)] bg-[var(--yellow-surface)] text-[var(--ink-foreground)]'
                     : 'hairline text-[var(--paper-dim)] hover:border-[var(--yellow)] hover:text-[var(--yellow)]'
                 }`}
               >

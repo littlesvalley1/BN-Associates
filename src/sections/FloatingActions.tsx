@@ -16,7 +16,7 @@ export default function FloatingActions() {
     <>
       <a
         href="/admin"
-        className="fixed bottom-20 left-4 z-40 inline-flex min-h-10 items-center gap-2 rounded-full border hairline bg-[var(--ink-2)]/95 px-4 font-mono2 text-xs font-bold text-[var(--yellow)] shadow-lg shadow-black/40 backdrop-blur transition-colors hover:border-[var(--yellow)] hover:bg-[var(--yellow)] hover:text-[var(--ink)] sm:bottom-6 sm:left-6"
+        className="fixed bottom-20 left-4 z-40 inline-flex min-h-10 items-center gap-2 rounded-full border hairline bg-[var(--ink-2)]/95 px-4 font-mono2 text-xs font-bold text-[var(--yellow)] shadow-lg shadow-black/40 backdrop-blur transition-colors hover:border-[var(--yellow)] hover:bg-[var(--yellow-surface)] hover:text-[var(--ink-foreground)] sm:bottom-6 sm:left-6"
         aria-label="Open admin panel"
       >
         <Settings2 size={15} aria-hidden />
@@ -47,7 +47,7 @@ export default function FloatingActions() {
       )}
 
       {/* Mobile sticky call bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t hairline bg-[#141416]/97 backdrop-blur-md sm:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t hairline bg-[var(--ink)]/97 backdrop-blur-md sm:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         <a
           href={telHref(SITE.phone1)}
           className="flex min-h-14 items-center justify-center gap-2 text-sm font-bold text-[var(--yellow)]"

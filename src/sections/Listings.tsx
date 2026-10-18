@@ -48,7 +48,7 @@ export default function Listings() {
                 onClick={() => setFilter(f.key)}
                 className={`flex min-h-11 items-center gap-2 rounded-full border px-5 font-mono2 text-sm font-bold uppercase tracking-wider transition-all duration-200 ${
                   active
-                    ? 'border-[var(--yellow)] bg-[var(--yellow)] text-[var(--ink)] shadow-[0_0_18px_rgb(255_212_0/0.35)]'
+                    ? 'border-[var(--yellow)] bg-[var(--yellow-surface)] text-[var(--ink-foreground)] shadow-[0_0_18px_rgb(255_212_0/0.35)]'
                     : 'hairline text-[var(--paper-dim)] hover:border-[var(--yellow)] hover:text-[var(--yellow)]'
                 }`}
               >
@@ -79,7 +79,7 @@ export default function Listings() {
                   {TYPE_LABEL[l.type]}
                 </span>
                 {l.badge && (
-                  <span className="rounded-sm bg-[var(--yellow)] px-2 py-0.5 font-mono2 text-[11px] font-bold uppercase tracking-wide text-[var(--ink)]">
+                  <span className="rounded-sm bg-[var(--yellow-surface)] px-2 py-0.5 font-mono2 text-[11px] font-bold uppercase tracking-wide text-[var(--ink-foreground)]">
                     {l.badge}
                   </span>
                 )}

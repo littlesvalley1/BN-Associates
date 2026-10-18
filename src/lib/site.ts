@@ -1,3 +1,5 @@
+import property2BhkPhoto from '@/assets/property-2bhk-nilothi.jpg'
+
 export interface SiteInfo {
   brand: string
   brandSub: string
@@ -120,6 +122,7 @@ const DEFAULT_LISTINGS: Listing[] = [
     priceNote: 'negotiable',
     specs: ['72 gaj', '2nd floor', '2 bath', 'Car parking'],
     badge: 'Hot Deal',
+    image: property2BhkPhoto,
   },
   {
     id: 'L02',

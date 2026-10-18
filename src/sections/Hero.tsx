@@ -136,8 +136,8 @@ export default function Hero() {
             </div>
 
             {/* floating badge */}
-            <div className="absolute -left-6 -top-5 rounded-md bg-[var(--yellow)] px-4 py-2 shadow-lg shadow-black/40">
-              <p className="font-mono2 text-xs font-bold uppercase tracking-wider text-[var(--ink)]">
+            <div className="absolute -left-6 -top-5 rounded-md bg-[var(--yellow-surface)] px-4 py-2 shadow-lg shadow-black/40">
+              <p className="font-mono2 text-xs font-bold uppercase tracking-wider text-[var(--ink-foreground)]">
                 Trusted since 2010
               </p>
             </div>

@@ -8,8 +8,10 @@
     --ink: #141416;            /* tinted off-black, main background */
     --ink-2: #1b1b1f;          /* elevated surface */
     --ink-3: #232329;          /* raised surface */
+    --ink-foreground: #141416;
     --line: #2b2b32;           /* 1px hairline borders */
     --yellow: #ffd400;         /* bright yellow — B.N. wordmark */
+    --yellow-surface: #ffd400;
     --yellow-soft: #ffe14d;
     --red: #d92b2b;            /* strong red — primary CTA */
     --red-deep: #b71f1f;
@@ -43,6 +45,50 @@
     --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+  .theme-root {
+    min-height: 100dvh;
+    background-color: var(--ink);
+    color: var(--paper);
+    color-scheme: dark;
+  }
+
+  .theme-root[data-theme='light'] {
+    color-scheme: light;
+    --ink: #f7f5ee;
+    --ink-2: #fffefa;
+    --ink-3: #eeeade;
+    --ink-foreground: #171715;
+    --line: #ddd8ca;
+    --yellow: #765700;
+    --yellow-surface: #ffd400;
+    --yellow-soft: #634900;
+    --red: #c52626;
+    --red-deep: #a91f1f;
+    --paper: #22211d;
+    --paper-dim: #5f5b52;
+    --paper-faint: #736f65;
+
+    --background: 45 33% 96%;
+    --foreground: 40 10% 13%;
+    --card: 48 100% 99%;
+    --card-foreground: 40 10% 13%;
+    --popover: 48 100% 99%;
+    --popover-foreground: 40 10% 13%;
+    --primary: 45 100% 42%;
+    --primary-foreground: 40 10% 13%;
+    --secondary: 45 24% 91%;
+    --secondary-foreground: 40 10% 13%;
+    --muted: 45 24% 91%;
+    --muted-foreground: 40 7% 38%;
+    --accent: 0 68% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 68% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 12% 84%;
+    --input: 40 12% 84%;
+    --ring: 45 100% 32%;
+  }
 }
 
 @layer base {
@@ -67,6 +113,11 @@
   ::selection {
     background: var(--yellow);
     color: var(--ink);
+  }
+
+  .theme-root[data-theme='light'] ::selection {
+    background: var(--yellow-surface);
+    color: var(--ink-foreground);
   }
 
   :focus-visible {
@@ -174,6 +225,11 @@
     overflow: hidden;
     background: rgb(27 27 31 / 0.72);
     box-shadow: 0 0 26px rgb(255 212 0 / 0.06);
+  }
+
+  .theme-root[data-theme='light'] .studio-credit {
+    background: rgb(255 255 255 / 0.78);
+    box-shadow: 0 0 26px rgb(135 98 0 / 0.08);
   }
 
   .studio-credit::before {
